@@ -1,0 +1,32 @@
+node_modules
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build output (not needed with tsx)
+dist/
+
+# Database files
+traffic.db*
+*.db
+*.db-shm
+*.db-wal
+
+# Export files
+exports/
+
+# SSL Certificates (auto-generated on install)
+certs/
+*.pem
+*.key
+*.crt
+*.cert
+
+# Vitest coverage report
+coverage
