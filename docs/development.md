@@ -6,8 +6,9 @@ This guide covers development setup, testing procedures, contributing guidelines
 
 ### Prerequisites
 
-- **Node.js 18+** - [Download from nodejs.org](https://nodejs.org/)
-- **npm** - Included with Node.js
+For basic setup requirements, see **[Getting Started Guide](getting-started.md#prerequisites)**.
+
+Additional development requirements:
 - **Git** - For version control
 - **Text editor/IDE** - VS Code recommended
 
@@ -17,17 +18,13 @@ This guide covers development setup, testing procedures, contributing guidelines
 ```bash
 git clone https://github.com/your-username/network-capture-mcp
 cd network-capture-mcp
-```
-
-2. **Install dependencies**:
-```bash
 npm install
 ```
 
-3. **Verify installation**:
+2. **Verify development setup**:
 ```bash
 npm test
-npm start -- --help
+npm run lint
 ```
 
 ### Development Workflow
@@ -390,32 +387,19 @@ npm run test:load
 
 ### Common Development Issues
 
-#### TypeScript Compilation Errors
+#### Development-Specific Problems
 ```bash
-# Check TypeScript configuration
-npx tsc --noEmit
+# TypeScript compilation errors
+npx tsc --noEmit && npm run lint:fix
 
-# Fix import/export issues
-npm run lint:fix
-```
-
-#### Database Issues During Development
-```bash
 # Reset development database
 rm traffic.db* && npm start
 
-# Validate database schema
-npm run validate-db:schema
-```
-
-#### SSL Certificate Problems
-```bash
 # Regenerate development certificates
 npm run generate-certs
-
-# Test with insecure mode
-npm start -- --insecure
 ```
+
+For general setup and runtime issues, see **[Troubleshooting Guide](troubleshooting.md)**.
 
 ## See Also
 

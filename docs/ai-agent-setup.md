@@ -287,166 +287,28 @@ For full-stack development analysis:
 
 ### Getting Started Queries
 
-Once your AI agent is connected, try these queries:
+Once your AI agent is connected, try these basic queries:
 
 ```
 "What's the proxy status?"
 "Show me all traffic from the last 5 minutes"
 "How many requests have been captured?"
-"What endpoints are being called most frequently?"
 ```
 
-### Traffic Analysis Queries
-
-```
-"Show me all failed API requests from the last hour"
-"What's the average response time for requests to api.example.com?"
-"Find all requests that contain authentication headers"
-"Analyze traffic patterns and show me any anomalies"
-```
-
-### Performance Analysis Queries
-
-```
-"Find the slowest endpoints in my application"
-"Show me response time trends for the last hour"
-"Which requests are taking longer than 1 second?"
-"Analyze performance bottlenecks in my traffic"
-```
-
-### Debugging Queries
-
-```
-"Show me all 4xx and 5xx error responses"
-"Find requests with specific error messages"
-"Show me the request/response details for failed API calls"
-"Analyze error patterns and suggest fixes"
-```
-
-### Data Management Queries
-
-```
-"Generate a comprehensive traffic report for the last 24 hours"
-"Export all traffic logs to CSV format"
-"Clear all traffic logs older than 2 days"
-"How much storage is the traffic database using?"
-```
-
-### WebSocket Analysis Queries
-
-```
-"Show me WebSocket connections with high message rates"
-"Find WebSocket connections that disconnected unexpectedly"
-"Analyze WebSocket message patterns"
-"Show me real-time WebSocket traffic"
-```
+For comprehensive usage examples including traffic analysis, performance monitoring, debugging queries, and WebSocket analysis, see **[Usage Examples](examples.md)**.
 
 ## Troubleshooting AI Agent Setup
 
-### Common Connection Issues
+### Quick AI Agent Issues
 
-**MCP server not found:**
-```json
-// ❌ Wrong - relative path
-"args": ["tsx", "./src/index.ts"]
+**Common problems:**
+- **MCP server not found**: Use absolute paths in configuration (not relative paths like `./`)
+- **Connection failures**: Ensure Node.js 18+ is installed and restart your AI agent after config changes
+- **Port conflicts**: Use `--port 9090` to change the default port
 
-// ✅ Correct - absolute path
-"args": ["tsx", "/full/path/to/network-capture-mcp/src/index.ts"]
-```
+### Need More Help?
 
-**Node.js version issues:**
-```bash
-# Check Node.js version
-node --version  # Should be 18.0.0 or higher
-
-# Update Node.js if needed
-# Visit https://nodejs.org/ for latest version
-```
-
-**Permission issues:**
-```bash
-# Check file permissions
-ls -la /path/to/network-capture-mcp/
-
-# Fix permissions if needed
-chmod +x /path/to/network-capture-mcp/src/index.ts
-```
-
-### Verification Steps
-
-1. **Check configuration syntax:**
-   ```bash
-   # Validate JSON syntax
-   cat claude_desktop_config.json | python -m json.tool
-   ```
-
-2. **Test MCP server manually:**
-   ```bash
-   cd /path/to/network-capture-mcp
-   npm start
-   ```
-
-3. **Check Claude Desktop logs:**
-   - Look for error messages in Claude Desktop console
-   - Check for MCP server startup messages
-
-4. **Verify proxy functionality:**
-   ```bash
-   curl --proxy http://localhost:8080 https://httpbin.org/get
-   ```
-
-### Advanced Troubleshooting
-
-**MCP server crashes on startup:**
-```json
-{
-  "mcpServers": {
-    "netcap-debug": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080",
-        "--no-auto-start",
-        "--db-path", "./debug-traffic.db"
-      ]
-    }
-  }
-}
-```
-
-**Port conflicts:**
-```json
-{
-  "mcpServers": {
-    "netcap": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "9090"  // Use different port
-      ]
-    }
-  }
-}
-```
-
-**SSL certificate issues:**
-```json
-{
-  "mcpServers": {
-    "netcap": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080",
-        "--insecure"  // Ignore SSL errors for testing
-      ]
-    }
-  }
-}
-```
+For comprehensive troubleshooting including detailed setup verification, advanced debugging, and SSL certificate issues, see the **[Troubleshooting Guide](troubleshooting.md)**.
 
 ## Best Practices
 
@@ -514,7 +376,5 @@ chmod +x /path/to/network-capture-mcp/src/index.ts
 ## See Also
 
 - **[Getting Started](getting-started.md)** - Initial setup and installation
-- **[Configuration](configuration.md)** - Complete configuration reference
-- **[API Reference](api-reference.md)** - Available MCP tools and usage
-- **[Examples](examples.md)** - Real-world usage examples
-- **[Troubleshooting](troubleshooting.md)** - Solving common problems
+- **[Usage Examples](examples.md)** - Real-world usage examples and queries
+- **[Troubleshooting](troubleshooting.md)** - Solving setup and connection problems

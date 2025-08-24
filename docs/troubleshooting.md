@@ -24,13 +24,11 @@ curl --proxy http://localhost:8080 https://httpbin.org/get
 # Restart the proxy
 # Ask your AI agent: "Restart the proxy server"
 
-# Use different port
+# Use different port (for port conflicts)
 npm start -- --port 9090
 
-# Reset to defaults
+# Reset to defaults and clear old data
 # Ask your AI agent: "Reset configuration to defaults"
-
-# Clear old data
 # Ask your AI agent: "Clear all logs older than 1 day"
 ```
 
@@ -253,14 +251,11 @@ response = requests.get(url, verify=False, proxies=proxies)
 # Enable HTTPS proxy explicitly
 npm start -- --https-port 8443
 
-# Check certificate installation
-npm run generate-certs
+# For testing, use insecure mode (see SSL solutions above)
+npm start -- --insecure
 
 # Test HTTPS proxy
 curl -k --proxy http://localhost:8080 https://httpbin.org/get
-
-# Use insecure mode for testing
-npm start -- --insecure
 ```
 
 ## AI Agent Connection Issues
@@ -519,37 +514,17 @@ cat /etc/resolv.conf  # Linux/macOS
 
 When reporting issues, include:
 
-1. **System Information**:
-   ```bash
-   node --version
-   npm --version
-   uname -a  # Linux/macOS
-   ```
-
-2. **Configuration**:
-   ```bash
-   npm start -- --help
-   # Your MCP configuration (redacted)
-   ```
-
-3. **Error Messages**:
-   - Complete error output
-   - Console logs from MCP server
-   - AI agent error messages
-
-4. **Test Results**:
-   ```bash
-   curl --proxy http://localhost:8080 https://httpbin.org/get
-   # Ask AI: "What's the proxy status?"
-   ```
+1. **System info**: `node --version`, `npm --version`
+2. **Configuration**: `npm start -- --help` output and MCP configuration
+3. **Error messages**: Complete error output and console logs
+4. **Test results**: `curl --proxy http://localhost:8080 https://httpbin.org/get`
 
 ### Escalation Path
 
-1. **Check this troubleshooting guide** first
-2. **Search existing issues** on GitHub
-3. **Run diagnostic commands** and collect information
-4. **Create detailed issue report** with debug information
-5. **Include reproduction steps** if possible
+1. Check this troubleshooting guide first
+2. Search existing issues on GitHub
+3. Run diagnostic commands and collect debug information
+4. Create detailed issue report with reproduction steps
 
 ### Emergency Recovery
 

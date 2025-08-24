@@ -184,58 +184,15 @@ Run your application normally - all HTTP/HTTPS traffic will be captured automati
 
 ## Common Setup Issues
 
-### "Port 8080 already in use"
-**Solution**: Use a different port
-```bash
-npm start -- --port 9090
-```
-Then update your application proxy settings to use port 9090.
+### Quick Fixes for Setup Problems
+If you encounter issues during setup, try these quick solutions:
 
-### "Permission denied" when writing database
-**Solution**: Check directory permissions
-```bash
-chmod 755 .
-# Or use a different location
-npm start -- --db-path ~/traffic.db
-```
+- **Port conflicts**: `npm start -- --port 9090`
+- **Permission errors**: `npm start -- --db-path ~/traffic.db`
+- **tsx not found**: Use `npx tsx src/index.ts` instead
 
-### "tsx not found"
-**Solution**: Install tsx globally or use npx
-```bash
-# Option 1: Install globally
-npm install -g tsx
-
-# Option 2: Use npx (recommended)
-npx tsx src/index.ts
-```
-
-### AI Agent can't connect to MCP server
-**Solutions**:
-1. **Check the path** in your MCP config is absolute (not relative)
-2. **Ensure Node.js 18+** is installed: `node --version`
-3. **Check console output** for error details when the MCP server starts
-4. **Check file permissions** on the project directory
-5. **Restart your AI agent** after configuration changes
-
-### No traffic being captured
-**Solutions**:
-1. **Verify proxy configuration**: Test with curl as shown above
-2. **Check proxy status**: Ask AI agent "What's the proxy status?"
-3. **Verify application settings**: Ensure your app is using `http://localhost:8080`
-4. **Check for HTTPS issues**: Some apps need certificate trust setup
-
-### HTTPS/SSL Certificate Issues
-**Solutions**:
-```bash
-# Regenerate certificates
-npm run generate-certs
-
-# Or disable HTTPS temporarily for testing
-npm start -- --no-https
-
-# Or ignore SSL errors (development only)
-npm start -- --insecure
-```
+### Need More Help?
+For comprehensive troubleshooting including AI agent connection issues, HTTPS problems, and traffic capture issues, see the **[Troubleshooting Guide](troubleshooting.md)**.
 
 ## Next Steps
 
@@ -258,80 +215,9 @@ Once you have traffic being captured successfully:
 - [ ] Your application is configured to use proxy
 - [ ] Traffic appears when using your application
 
-## Performance Considerations
 
-### System Impact
-- **Memory Usage**: ~20-50MB for typical usage (1000-10000 requests)
-- **CPU Impact**: Minimal (<1% for most applications)
-- **Disk Space**: ~1MB per 1000 HTTP requests (configurable retention)
-- **Network Latency**: <5ms additional latency per request
 
-### Recommended Limits
-- **Development**: No limits needed - capture everything
-- **Testing**: Up to 100,000 requests (default limit)
 
-> **Important**: This tool is designed for development and testing only. Do not use in production environments.
-
-### Storage Management
-You can manage storage through AI agent queries:
-```
-"How much storage is the traffic database using?"
-"Clear netcap logs older than 3 days"
-"Optimize the netcap database"
-```
-
-## Real-World Examples
-
-### API Integration Testing
-```bash
-# Start capturing
-npm start
-
-# Configure your app to use proxy
-export HTTP_PROXY=http://localhost:8080
-export HTTPS_PROXY=http://localhost:8080
-
-# Run your application that calls external APIs
-node my-app.js
-
-# Ask AI to analyze
-# "Show me all failed API requests"
-# "Which API endpoints are slowest?"
-# "Find requests with authentication errors"
-```
-
-### Web Development Debugging
-```bash
-# For React development
-npm start -- --port 8080
-
-# In your React project, add to package.json:
-# "proxy": "http://localhost:8080"
-
-# Start your React app
-npm start
-
-# Ask AI to analyze frontend API calls
-# "Show me all requests to /api endpoints"
-# "Find slow loading resources"
-# "Analyze error patterns in my app"
-```
-
-### Mobile App Testing
-```bash
-# Start proxy
-npm start
-
-# Configure mobile device to use your computer as proxy
-# Device WiFi settings: Manual proxy, IP: your-computer-ip, Port: 8080
-
-# Use your mobile app normally
-
-# Ask AI to analyze mobile traffic
-# "Show me all requests from my mobile app"
-# "Find API calls that are failing on mobile"
-# "Compare mobile vs web traffic patterns"
-```
 
 ## Understanding the Output
 
@@ -355,16 +241,14 @@ When you ask your AI agent about traffic, you'll see data like:
 "Show me all traffic from the last hour"
 "Find all POST requests that failed"
 "What's the average response time for API calls?"
-"Show me requests with authentication headers"
 "Find the slowest endpoints"
-"Analyze error patterns in my traffic"
-"Export traffic data to CSV format"
-"Generate a traffic report for today"
 ```
+
+For more comprehensive examples and real-world usage patterns, see **[Usage Examples](examples.md)**.
 
 ## Getting Help
 
-- **Configuration issues**: See [Configuration Guide](configuration.md)
-- **AI agent setup**: See [AI Agent Setup](ai-agent-setup.md)
-- **Technical problems**: See [Troubleshooting](troubleshooting.md)
-- **Advanced usage**: See [API Reference](api-reference.md)
+- **Setup Problems**: [Troubleshooting Guide](troubleshooting.md)
+- **AI Agent Configuration**: [AI Agent Setup](ai-agent-setup.md)
+- **Advanced Configuration**: [Configuration Guide](configuration.md)
+- **Usage Examples**: [Examples Guide](examples.md)

@@ -135,83 +135,7 @@ Invalid configurations will show helpful error messages with suggested fixes.
 
 ## MCP Client Configuration
 
-### Claude Desktop Configuration
-
-Basic configuration:
-```json
-{
-  "mcpServers": {
-    "netcap": {
-      "command": "npx",
-      "args": ["tsx", "/path/to/network-capture-mcp/src/index.ts"]
-    }
-  }
-}
-```
-
-With custom configuration:
-```json
-{
-  "mcpServers": {
-    "netcap": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "9090",
-        "--db-path", "./custom-traffic.db",
-        "--max-body-size", "2097152"
-      ]
-    }
-  }
-}
-```
-
-### Development Configuration
-```json
-{
-  "mcpServers": {
-    "netcap-dev": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080",
-        "--db-path", "./dev-traffic.db",
-        "--insecure"
-      ]
-    }
-  }
-}
-```
-
-### Combined with Other MCP Servers
-
-Example showing Network Capture MCP alongside Playwright:
-```json
-{
-  "mcpServers": {
-    "netcap": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080"
-      ]
-    },
-    "playwright": {
-      "command": "npx",
-      "args": [
-        "@playwright/mcp@latest",
-        "--vision",
-        "--ignore-https-errors",
-        "--proxy-server",
-        "localhost:8080"
-      ]
-    }
-  }
-}
-```
+For detailed AI agent setup including Claude Desktop configuration, combined MCP server setups, and use case-specific configurations, see **[AI Agent Setup Guide](ai-agent-setup.md)**.
 
 ## Configuration by Use Case
 
@@ -223,45 +147,12 @@ npm start -- \
   --health-check-interval 30
 ```
 
-```json
-{
-  "mcpServers": {
-    "proxy-traffic": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080",
-        "--max-body-size", "2097152"
-      ]
-    }
-  }
-}
-```
-
 ### Performance Testing
 ```bash
 npm start -- \
   --port 8080 \
   --no-capture-body \
   --health-check-interval 10
-```
-
-```json
-{
-  "mcpServers": {
-    "proxy-traffic": {
-      "command": "npx",
-      "args": [
-        "tsx",
-        "/path/to/network-capture-mcp/src/index.ts",
-        "--port", "8080",
-        "--no-capture-body",
-        "--health-check-interval", "10"
-      ]
-    }
-  }
-}
 ```
 
 ### Security Testing
@@ -272,6 +163,8 @@ npm start -- \
   --max-body-size 5242880 \
   --db-path ./security-test-traffic.db
 ```
+
+For MCP client configuration examples for these use cases, see **[AI Agent Setup Guide](ai-agent-setup.md)**.
 
 ## SSL Certificate Configuration
 
