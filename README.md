@@ -1,4 +1,4 @@
-# NetCap MCP
+# Network Capture MCP
 
 An MCP (Model Context Protocol) server that provides HTTP(S) and WebSocket network capture and analysis tools using mockttp.
 
@@ -71,8 +71,8 @@ An MCP (Model Context Protocol) server that provides HTTP(S) and WebSocket netwo
 
 ### 1. Install and Start
 ```bash
-git clone https://github.com/theinfinitereality/netcap-mcp
-cd netcap-mcp
+git clone https://github.com/theinfinitereality/network-capture-mcp
+cd network-capture-mcp
 npm install
 ```
 
@@ -83,7 +83,7 @@ Add to your Claude Desktop config (`claude_desktop_config.json`):
   "mcpServers": {
     "netcap": {
       "command": "npx",
-      "args": ["tsx", "/full/path/to/netcap-mcp/src/index.ts"]
+      "args": ["tsx", "/full/path/to/network-capture-mcp/src/index.ts"]
     }
   }
 }
@@ -407,7 +407,7 @@ Add to your `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts"
+        "/path/to/network-capture-mcp/src/index.ts"
       ]
     }
   }
@@ -423,7 +423,7 @@ Add to your `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts",
+        "/path/to/network-capture-mcp/src/index.ts",
         "--port", "9090",
         "--db-path", "./custom-traffic.db"
       ]
@@ -443,7 +443,7 @@ Example showing how to use the proxy server alongside other MCP servers like Pla
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts",
+        "/path/to/network-capture-mcp/src/index.ts",
         "--port", "8080"
       ]
     },
@@ -472,7 +472,7 @@ For development, you can use the TypeScript source directly:
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts",
+        "/path/to/network-capture-mcp/src/index.ts",
         "--port", "8080",
         "--db-path", "./dev-traffic.db"
       ]
@@ -491,7 +491,7 @@ For development, you can use the TypeScript source directly:
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts",
+        "/path/to/network-capture-mcp/src/index.ts",
         "--port", "8080",
         "--max-body-size", "2097152"
       ]
@@ -508,7 +508,7 @@ For development, you can use the TypeScript source directly:
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/netcap-mcp/src/index.ts",
+        "/path/to/network-capture-mcp/src/index.ts",
         "--port", "8080",
         "--no-capture-body",
         "--health-check-interval", "10"
@@ -1171,7 +1171,7 @@ This project uses **tsx** to run TypeScript directly without a build step:
 
 ## Available MCP Tools
 
-NetCap MCP provides the following tools for AI agents:
+Network Capture MCP provides the following tools for AI agents:
 
 ### Proxy Management
 - **`get_proxy_status`** - Get current proxy server status and health
@@ -1316,7 +1316,7 @@ Traffic entries include comprehensive information:
 
 ## Testing
 
-NetCap MCP includes comprehensive testing tools:
+Network Capture MCP includes comprehensive testing tools:
 
 ### Automated Testing
 ```bash

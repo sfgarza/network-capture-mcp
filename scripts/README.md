@@ -1,6 +1,6 @@
 # Development Scripts
 
-This directory contains development and validation scripts for the netcap-mcp project.
+This directory contains development and validation scripts for the network-capture-mcp project.
 
 ## 🧪 Available Scripts
 
@@ -270,4 +270,4 @@ npm run test-mcp-tools
 tsx scripts/mcp-tool-tester.ts --verbose
 ```
 
-These scripts provide comprehensive validation and debugging capabilities for the netcap-mcp project, ensuring data integrity and tool functionality throughout development.
+These scripts provide comprehensive validation and debugging capabilities for the network-capture-mcp project, ensuring data integrity and tool functionality throughout development.

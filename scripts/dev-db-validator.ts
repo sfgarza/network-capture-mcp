@@ -4,7 +4,7 @@
  * Development Database Validator
  *
  * This script provides comprehensive database querying and validation tools
- * for the netcap-mcp project. It can:
+ * for the network-capture-mcp project. It can:
  *
  * 1. Query all database entries directly
  * 2. Validate MCP tool call results against raw database data

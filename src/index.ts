@@ -28,7 +28,7 @@ class NetCapMcpServer {
 
   constructor(autoStart: boolean = true, config?: ProxyConfig) {
     this.server = new McpServer({
-      name: 'netcap-mcp',
+      name: 'network-capture-mcp',
       version: '1.0.0',
     });
 
@@ -970,7 +970,7 @@ async function main(): Promise<void> {
     }
 
     if (args.version) {
-      console.log('netcap-mcp v1.0.0');
+      console.log('network-capture-mcp v1.0.0');
       process.exit(0);
     }
 

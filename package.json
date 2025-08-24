@@ -1,10 +1,10 @@
 {
-  "name": "netcap-mcp",
+  "name": "network-capture-mcp",
   "version": "1.0.0",
   "description": "MCP server for HTTP and WebSocket network capture using mockttp",
   "main": "src/index.ts",
   "bin": {
-    "netcap-mcp": "./src/index.ts"
+    "network-capture-mcp": "./src/index.ts"
   },
   "type": "module",
   "scripts": {
